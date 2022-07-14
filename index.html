@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando...</title>
+</head>
+
+
+
+<style>
+    body{
+        margin: 0;
+
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        min-height: auto;
+        background: #bbdead;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .box {
+        width: 350px;
+        max-height: auto;
+        background: #ccdead;
+        border-radius: 50px 100px;
+        border: 3px solid #eedead;
+    }
+
+    .content{
+        padding: 15px;
+    }
+
+    .content h1{
+       margin: 25px 0 30px 95px;
+       color: #1c8b21;
+    }
+
+    .content fieldset{
+        color: #1c8b21;
+        padding: 10px 0 10px 60px;
+        border: none;
+    }
+
+    .content fieldset input, select{
+        margin: 10px 0 15px 0;
+        padding: 10px;
+        border-radius: 50px;
+        border-color: #1c8b21;
+    }
+
+    .result{
+        width: 150px;
+        min-height: 80px;
+        border-radius: 50px;
+        background: #a4ab80;
+        padding: 20px 35px 20px 35px;
+        margin: 15px 0 0 50px;
+    }
+
+    .even {
+        color: #f5e5b6;
+    }
+
+    .odd{
+        color: #0d8d29;
+    }
+
+</style>
+
+
+
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="content">
+                <h1>Treino</h1>
+                <fieldset>
+                    <legend>Escolha</legend>
+                    <input type="number" placeholder="Informe um número" id="informedNumber">
+                    <select id="options">
+                        <option>Opções</option>
+                        <option value="evenNumber">Números pares</option>
+                        <option value="oddNumber">Números impares</option>
+                        <option value="bothNumber">Ambos</option>
+                    </select>
+                    <input type="submit" value="enviar" id="submit">
+                </fieldset>
+                <div id="printResult" class="result"></div>
+             </div>
+        </div>
+    </div>    
+</body>
+
+
+
+
+<script>
+    
+    submit.onclick = function(){
+        result();
+    }
+   
+
+    function result(){
+
+        const informedNumber = document.querySelector('#informedNumber');
+        const options = document.querySelector('#options');
+        const printResult = document.querySelector('#printResult');
+            //console.log(options.value);
+
+        printResult.innerHTML = '';
+
+        for(i = 0; i <= informedNumber.value; i++){
+        let number = i;
+        
+
+        if(number % 2 == 0 && (options.value == 'evenNumber' || options.value == 'bothNumber')){
+                //console.log( i + 'par');
+                printResult.innerHTML = printResult.innerHTML + "<span class='even'>" + i + "</span>" +  ' ';
+        } 
+
+        if (number % 2 == 1 && (options.value == 'oddNumber' || options.value == 'bothNumber')){
+            //console.log( i + 'impar');
+            printResult.innerHTML = printResult.innerHTML + "<span class='odd'>" + i + "</span>" +  ' ';
+
+            }
+        }
+    }
+</script>
+</html>
